@@ -85,7 +85,7 @@ class EventsController extends AbstractController
     {
         $events = $eventsRepository->findByType($type);
 
-        return $this->render('events/_type.html.twig', [
+        return $this->render('events/type.html.twig', [
             'events' => $events,
             'selectedType' => $type,
         ]);

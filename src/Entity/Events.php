@@ -42,7 +42,7 @@ class Events
     private ?string $URL = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Type = null;
+    private ?string $type = null;
 
     public function getId(): ?int
     {
@@ -159,12 +159,12 @@ class Events
 
     public function getType(): ?string
     {
-        return $this->Type;
+        return $this->type;
     }
 
-    public function setType(string $Type): static
+    public function setType(string $type): static
     {
-        $this->Type = $Type;
+        $this->type = $type;
 
         return $this;
     }

@@ -41,8 +41,9 @@ class EventsType extends AbstractType
             ->add('URL', null, [
                 'attr' => ['class' => 'form-control', 'placeholder' => 'Please enter the event URL'],
             ])
-            ->add('Type', ChoiceType::class, [
-                'attr' => ['class' => 'form-control', 'placeholder' => 'Please select the type of the event'], 'choices'  => [
+            ->add('type', ChoiceType::class, [
+                'attr' => ['class' => 'form-control'],
+                'choices'  => [
                     'Music' => 'music',
                     'Theater' => 'theater',
                     'Movie' => 'movie',
