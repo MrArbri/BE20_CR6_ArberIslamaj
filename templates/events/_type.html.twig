@@ -1,0 +1,32 @@
+{# templates/events/_type.html.twig #}
+
+<h1>Events of Type
+	{{ selectedType }}</h1>
+
+<ul>
+	{% for event in events %}
+		<div class="p-2">
+			<div class="card">
+				<img src="{{ event.picture }}" class="card-img-top" alt="{{ event.name }}">
+				<div class="card-body">
+					<h5 class="card-title">Event name:
+						{{ event.name }}</h5>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">Type:
+						{{ event.Type }}</li>
+					<li class="list-group-item">Date & time:
+						{{ event.dateTime ? event.dateTime|date('Y-m-d H:i:s') : '' }}</li>
+					<li class="list-group-item">Location:
+						{{ event.address }}</li>
+				</ul>
+				<div class="d-flex justify-content-evenly m-1">
+					<a class="btn btn-primary" href="{{ path('app_events_show', {'id': event.id}) }}" class="card-link">Details</a>
+					<a class="btn btn-warning" href="{{ path('app_events_edit', {'id': event.id}) }}" class="card-link">Update</a>
+					<a target="_blank" class="btn btn-primary" href="{{ event.URL }}" class="card-link">Event URL</a>
+
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</ul>

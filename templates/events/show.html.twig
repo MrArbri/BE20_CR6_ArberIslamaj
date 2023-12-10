@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Events
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+
+		<h1 class="m-3 text-center">Event details</h1>
+
+		<div class="card mb-3">
+			<img src="{{ event.picture }}" class="card-img-top" alt="{{ event.name }}">
+			<div class="card-body">
+				<h5 class="card-title">Event name:
+					{{ event.name }}</h5>
+				<p class="card-text">Type:
+					{{ event.Type }}</p>
+				<p class="card-text">Description:
+					{{ event.description }}</p>
+				<p class="card-text">Date & Time:
+					{{ event.dateTime ? event.dateTime|date('Y-m-d H:i:s') : '' }}</p>
+				<p class="card-text">Location:
+					{{ event.address }}</p>
+				<p class="card-text">Capacity:
+					{{ event.capacity }}</p>
+				<p class="card-text">Email:
+					{{ event.email }}</p>
+				<p class="card-text">Tel:
+					{{ event.phone }}</p>
+
+				<div class="d-flex justify-content-evenly border-top pt-3">
+					<a class="btn btn-warning" href="{{ path('app_events_index') }}">All events</a>
+					<a class="btn btn-primary" href="{{ event.URL }}">Event URL</a>
+					<a class="btn btn-warning" href="{{ path('app_events_edit', {'id': event.id}) }}">Update event</a>
+					<a>{{ include('events/_delete_form.html.twig') }}</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
